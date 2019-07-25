@@ -1,0 +1,37 @@
+<!-- <view style='text-align: center;'>Welcome {{batch}}!</view> -->
+<!-- 
+
+{{text}}
+
+<view class="card-product">
+  <view class="card-product-infos">
+    <view class='h2'>FMC</view>
+    <view class='p'>Forgot an end after my if statement</view>
+  </view>
+</view> -->
+
+<view class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  F*&K MY CODE
+</view>
+
+
+<view class='login-box'>
+  <view class='signin-text' wx:if="{{loggedIn}}">Welcome back {{userInfo.nickName}}!</view>
+  <view class='signin-text' wx:else>See you next time</view>
+  <button size='mini' bindtap='logIn'>Toggle Login</button>
+</view>
+
+<view wx:for="{{posts}}" wx:for-index='index' wx:for-item='post'>
+    <view class="card-product">
+  <view class="card-product-infos">
+    <view class='h2'>{{index}}. {{post.title}}</view>
+    <view class='p'>{{post.description}}</view>
+  </view>
+</view>
+</view>
+
+<view wx:if='{{posts.length < 1}}' style='text-align: center; padding: 50rpx; color: grey;' bindtap='goToNew'>Uh ho, no stories! :( Click here to make one</view>
+
+
+<!-- sample getUserInfo button -->
+<!-- <button open-type='getUserInfo' bindgetuserinfo='getUserInfo'>getUserInfo</button> -->

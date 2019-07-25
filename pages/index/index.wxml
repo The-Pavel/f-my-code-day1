@@ -1,0 +1,7 @@
+<view class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.7)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <view class="container">
+    <view class='h1'>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</view>
+    <view class='p'>Change your life and learn to code at one of our campuses around the world.</view>
+    <view class="btn btn-flat" bindtap='goToStories'>Enter FML</view>
+  </view>
+</view>

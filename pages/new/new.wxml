@@ -1,0 +1,7 @@
+<view style='text-align: center; margin: 50rpx 0;'>Submit new post!</view>
+<form bindsubmit='submitForm'>
+  <input name='title' placeholder='input title here'></input>
+  <input name='description' placeholder='input description here'></input>
+  <button form-type='submit'>Submit</button>
+  <button form-type='reset'>reset</button>
+</form>

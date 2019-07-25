@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/stories/stories",
+    "pages/new/new"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/stories/stories",
+        "text": "FMC"
+      },
+      {
+        "pagePath": "pages/new/new",
+        "text": "New Story"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
