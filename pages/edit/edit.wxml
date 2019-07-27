@@ -1,0 +1,7 @@
+<view style='text-align: center; margin: 50rpx 0;'>Edit your post!</view>
+<form bindsubmit='submitForm'>
+  <input style='border-left: 5px solid black; padding-left: 10rpx; background-color: aliceblue; margin-bottom: 20rpx;' name='name' value='{{story.name}}' placeholder='input name here'></input>
+  <input style='border-left: 5px solid black; padding-left: 10rpx; background-color: aliceblue; margin-bottom: 20rpx;' name='text' value='{{story.text}}' placeholder='input text here'></input>
+  <button type='primary' form-type='submit'>Submit</button>
+  <button type='warn' form-type='reset'>reset</button>
+</form>

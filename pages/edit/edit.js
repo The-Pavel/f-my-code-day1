@@ -1,4 +1,4 @@
-// pages/new/new.js
+// pages/edit/edit.js
 Page({
 
   /**
@@ -12,20 +12,29 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    let page = this
+    let id = options.id
+    wx.request({
+      url: `http://localhost:3000/api/v1/stories/${id}`,
+      success: function (res) {
+        page.setData({ story: res.data.story })
+      }
+    })
   },
 
   submitForm: function (e) {
+    let id =  this.data.story.id
     let name = e.detail.value.name
     let text = e.detail.value.text
     let story = { name: name, text: text }
     wx.request({
-      url: 'http://localhost:3000/api/v1/stories',
-      method: 'POST',
+      url: `http://localhost:3000/api/v1/stories/${id}`,
+      method: 'PUT',
       data: story,
-      success: function(res) {
-        wx.reLaunch({
-          url: '/pages/stories/stories',
+      success: function (res) {
+        console.log(res)
+        wx.redirectTo({
+          url: `/pages/show/show?id=${id}`,
         })
       }
     })

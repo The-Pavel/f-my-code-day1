@@ -1,0 +1,8 @@
+<view class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.7)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <view class="container">
+    <view class='h1'>{{story.text}}</view>
+    <view class='p'>BY: {{story.name}}</view>
+    <button data-id='{{story.id}}' bindtap='goToEdit' type='primary'>Edit Story</button>
+    <button data-id='{{story.id}}' bindtap='deleteStory' type='warn'>Delete</button>
+  </view>
+</view>

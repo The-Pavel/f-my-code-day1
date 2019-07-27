@@ -21,11 +21,11 @@
   <button size='mini' bindtap='logIn'>Toggle Login</button>
 </view>
 
-<view wx:for="{{posts}}" wx:for-index='index' wx:for-item='post'>
-    <view class="card-product">
+<view wx:key wx:for="{{stories}}" wx:for-index='index' wx:for-item='story'>
+    <view data-id='{{story.id}}' bindtap='goToShow' class="card-product">
   <view class="card-product-infos">
-    <view class='h2'>{{index}}. {{post.title}}</view>
-    <view class='p'>{{post.description}}</view>
+    <view class='h2'>{{story.name}}</view>
+    <view class='p'>{{story.text}}</view>
   </view>
 </view>
 </view>

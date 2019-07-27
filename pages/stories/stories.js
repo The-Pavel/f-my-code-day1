@@ -5,12 +5,7 @@ Page({
    * Page initial data
    */
   data: {
-    batch: "#272",
-    fav_restos: [
-      {name: "Sichuan Citizen", address: "Jing'an"},
-      {name: "Bull and Claw", address: "Xuhui"},
-      {name: "Mr & Ms Bund", address: "Bund"},
-    ],
+    
     loggedIn: false
   },
 
@@ -20,17 +15,25 @@ Page({
 
   // the function called by the getUserInfo button
   getUserInfo: function(e) {
-    console.log(e)
+  
   },
 
   
-
+  
   /**
    * Lifecycle function--Called when page load
    */
+
   onLoad: function (options) {
+    let page = this // context is the Page
     this.setData({userInfo: getApp().globalData.userInfo})
-    this.setData({posts: getApp().globalData.posts})
+    wx.request({
+      url: 'http://localhost:3000/api/v1/stories',
+      success: function(res) {
+        console.log(res)
+        page.setData({stories: res.data.stories})
+      }
+    })
   },
 
   // ***NOTE*** ES6 syntax! You can use any you prefer :)
@@ -40,29 +43,43 @@ Page({
     })
   },
 
+
+  goToShow: function (event) {
+    let id = event.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `/pages/show/show?id=${id}`,
+    })
+  },
+  // OUR LOGIC IN THE SHOW.JS FILE
+  // onLoad: function (options) {
+  //   let page = this
+  //   let id = options.id
+  //   wx.request({
+  //     url: `http://localhost:3000/api/v1/stories/${id}`,
+  //     .....
+  // },
+
   /**
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-    console.log("Ready")
+    
   },
 
   /**
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-    this.setData({batch: "#274"})
+    
   },
 
   /**
    * Lifecycle function--Called when page hide
    */
   onHide: function () {
-    console.log("Hiding")
+    
   },
-  testFunction: function () {
-   
-  },
+ 
   /**
    * Lifecycle function--Called when page unload
    */

@@ -1,4 +1,4 @@
-// pages/new/new.js
+// pages/show/show.js
 Page({
 
   /**
@@ -12,18 +12,29 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    let page = this
+    let id = options.id
+    wx.request({
+      url: `http://localhost:3000/api/v1/stories/${id}`,
+      success: function(res) {
+        page.setData({story: res.data.story, comments: res.data.comments})
+      }
+    })
   },
 
-  submitForm: function (e) {
-    let name = e.detail.value.name
-    let text = e.detail.value.text
-    let story = { name: name, text: text }
+  goToEdit: function(e) {
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `/pages/edit/edit?id=${id}`,
+    })
+  },
+
+  deleteStory: function(e) {
+    let id = e.currentTarget.dataset.id
     wx.request({
-      url: 'http://localhost:3000/api/v1/stories',
-      method: 'POST',
-      data: story,
-      success: function(res) {
+      url: `http://localhost:3000/api/v1/stories/${id}`,
+      method: 'DELETE',
+      success: (res) => {
         wx.reLaunch({
           url: '/pages/stories/stories',
         })
